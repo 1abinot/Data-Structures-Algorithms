@@ -324,19 +324,19 @@ public class App {
         return result;
     }
 
-    
     public static void main(String[] args) throws IOException {
-        SLL<Character> lista = new SLL<>();
+
+        SLL<Character> sll = new SLL<>();
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         System.out.println("First List");
         int n = Integer.parseInt(br.readLine());
         String []pomNiza = br.readLine().split(" ");
         for (int i = 0; i < n; i++) {
-            lista.insertLast(pomNiza[i].charAt(0));
+            sll.insertLast(pomNiza[i].charAt(0));
         }
 
-        System.out.println(lista);
+        System.out.println(sll);
 
         //System.out.println(checkPalindrome(list));
         //removeDuplicatesSorted(list);
