@@ -132,10 +132,66 @@ public class App {
         }
         return stack.pop();
     }
-    
+
+
+
+    public static int proveri_t_posle_s(char [] St) {
+        ArrayStack<Character> stack = new ArrayStack<Character>(St.length);
+
+        for (int i = 0; i < St.length;i++) {
+            if (St[i] == 'S' || St[i] == 'T') {
+                stack.push(St[i]);
+            }
+        }
+
+        int countT = 0;
+        int countAfter = 0;
+        boolean cFirst = true;
+        int br = 0;
+        while (!stack.isEmpty()) {
+            char c = stack.pop();
+            if (c == 'S') {
+                if (cFirst) {
+                    return 0;
+                }
+                if (br%2==0 && countT!=0) {
+                    countAfter = countT;
+                }
+
+                if(br%2!=0)
+                    countAfter-=countT;
+
+                if (countAfter < 0) {
+                    return 0;
+                }
+                br+=1;
+                countT=0;
+            } else if (c == 'T') {
+                countT++;
+                cFirst=false;
+            }
+        }
+
+
+        if(countAfter == 0 )
+            return 1;
+        else
+            return 0;
+    }
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        System.out.println(postfixEvaluation(br.readLine()));
+        //System.out.println(postfixEvaluation(br.readLine()));
+        //System.out.println(infixEval(br.readLine()));
+
+        char [] niza=new char[100];
+
+        Scanner f=new Scanner(System.in);
+        String st=f.next();
+        niza=st.toCharArray();
+
+        int rez= proveri_t_posle_s(niza);
+        System.out.println(rez);
     }
 }
