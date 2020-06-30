@@ -146,12 +146,12 @@ public class App {
 
         int countT = 0;
         int countAfter = 0;
-        boolean cFirst = true;
+        boolean sFirst = true;
         int br = 0;
         while (!stack.isEmpty()) {
             char c = stack.pop();
             if (c == 'S') {
-                if (cFirst) {
+                if (sFirst) {
                     return 0;
                 }
                 if (br%2==0 && countT!=0) {
@@ -168,7 +168,7 @@ public class App {
                 countT=0;
             } else if (c == 'T') {
                 countT++;
-                cFirst=false;
+                sFirst=false;
             }
         }
 
