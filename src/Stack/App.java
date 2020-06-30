@@ -133,6 +133,52 @@ public class App {
         return stack.pop();
     }
 
+    public static int prec(char c) {
+        if (c == '+' || c == '-') {
+            return 1;
+        } else if (c == '*' || c == '/') {
+            return 2;
+        } else if (c == '^') {
+            return 3;
+        }else
+            return -1;
+    }
+
+    public static String infixToPostfix(String exp) {
+        ArrayStack<Character> stack = new ArrayStack<Character>(exp.length());
+        StringBuilder output = new StringBuilder();
+
+        for (int i = 0; i < exp.length(); i++) {
+            char c = exp.charAt(i);
+            if (Character.isLetterOrDigit(c)) {
+                output.append(c);
+            } else if (c == '(') {
+                stack.push(c);
+            } else if (c == ')') {
+                while (!stack.isEmpty() && stack.peek() != '(') {
+                    output.append(stack.pop());
+                }
+                if (!stack.isEmpty() && stack.peek() != '(') {
+                    return "Invalid expression";
+                }
+                else
+                    stack.pop();
+            }else{
+                while (!stack.isEmpty() && prec(c) <= prec(stack.peek())) {
+                    output.append(stack.pop());
+                }
+                stack.push(c);
+            }
+
+
+
+        }
+        while (!stack.isEmpty()) {
+            output.append(stack.pop());
+        }
+        return output.toString();
+    }
+
 
 
     public static int proveri_t_posle_s(char [] St) {
@@ -184,7 +230,11 @@ public class App {
 
         //System.out.println(postfixEvaluation(br.readLine()));
         //System.out.println(infixEval(br.readLine()));
+        System.out.println(infixToPostfix(br.readLine()));
 
+        /*
+        ******************************
+        Letters Input
         char [] niza=new char[100];
 
         Scanner f=new Scanner(System.in);
@@ -193,5 +243,7 @@ public class App {
 
         int rez= proveri_t_posle_s(niza);
         System.out.println(rez);
+        *******************************
+        */
     }
 }
