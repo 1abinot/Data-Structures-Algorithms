@@ -1,4 +1,108 @@
 package Stack;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.NoSuchElementException;
+
+class SLLNode<E> {
+    protected E element;
+    protected SLLNode<E> succ;
+
+    public SLLNode(E elem, SLLNode<E> succ) {
+        this.element = elem;
+        this.succ = succ;
+    }
+
+    @Override
+    public String toString() {
+        return element.toString();
+    }
+}
+
+
+class LinkedStack<E> implements Stack<E> {
+
+    //Stekot e pretstaven na sledniot nacin: top e link do prviot jazol
+    // na ednostrano-povrzanata lista koja sodrzi gi elementite na stekot .
+    private SLLNode<E> top;
+
+    public LinkedStack () {
+        // Konstrukcija na nov, prazen stek.
+        top = null;
+    }
+
+    public boolean isEmpty () {
+        // Vrakja true ako i samo ako stekot e prazen.
+        return (top == null);
+    }
+
+    public E peek () {
+        // Go vrakja elementot na vrvot od stekot.
+        if (top == null)
+            throw new NoSuchElementException();
+        return top.element;
+    }
+
+    public void clear () {
+        // Go prazni stekot.
+        top = null;
+    }
+
+    public void push (E x) {
+        // Go dodava x na vrvot na stekot.
+        top = new SLLNode<E>(x, top);
+    }
+
+    public E pop () {
+        // Go otstranuva i vrakja elementot shto e na vrvot na stekot.
+        if (top == null)
+            throw new NoSuchElementException();
+        E topElem = top.element;
+        top = top.succ;
+        return topElem;
+    }
+
+}
+
 public class LinkedStackApp {
+    public static int checkXML(String[] xml) {
+        LinkedStack<String> stack = new LinkedStack<String>();
+
+        for (String s : xml) {
+            if (s.charAt(0) == '[') {
+                if (s.charAt(1) != '/') {
+                    stack.push(s.substring(1));
+                    //System.out.println(stack.peek());
+                } else {
+                    if (stack.isEmpty()) {
+                        return 0;
+                    }
+                    if (!stack.pop().equals(s.substring(2))) {
+                        System.out.println(s.substring(2));
+                        System.out.println(stack.peek());
+                        return 0;
+                    }
+                }
+            }
+        }
+
+        if (stack.isEmpty())
+            return 1;
+
+        return 0;
+    }
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+
+        int n = Integer.parseInt(br.readLine());
+
+        String[] xmlCode = new String[n];
+        for (int i = 0; i < n; i++) {
+            xmlCode[i] = br.readLine();
+        }
+
+        System.out.println(checkXML(xmlCode));
+    }
 }
