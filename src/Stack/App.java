@@ -225,12 +225,26 @@ public class App {
             return 0;
     }
 
+    public static void decToBinConverter(int n) {
+        ArrayStack<Integer> stack = new ArrayStack<Integer>(32);
+
+        while (n != 0) {
+            stack.push(n % 2);
+            n/=2;
+        }
+
+        while (!stack.isEmpty()) {
+            System.out.print(stack.pop());
+        }
+        System.out.println();
+    }
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
+        int n = Integer.parseInt(br.readLine());
         //System.out.println(postfixEvaluation(br.readLine()));
         //System.out.println(infixEval(br.readLine()));
-        System.out.println(infixToPostfix(br.readLine()));
+        //System.out.println(infixToPostfix(br.readLine()));
 
         /*
         ******************************
@@ -245,5 +259,7 @@ public class App {
         System.out.println(rez);
         *******************************
         */
+
+        decToBinConverter(n);
     }
 }
