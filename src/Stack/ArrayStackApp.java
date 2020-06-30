@@ -88,7 +88,7 @@ class ArrayStack<E> implements Stack<E> {
     }
 }
 
-public class App {
+public class ArrayStackApp {
     public static int postfixEvaluation(String exp) {
 
         ArrayStack<Integer> stack = new ArrayStack<Integer>(exp.length());
