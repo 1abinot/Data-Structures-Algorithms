@@ -73,14 +73,12 @@ public class LinkedStackApp {
             if (s.charAt(0) == '[') {
                 if (s.charAt(1) != '/') {
                     stack.push(s.substring(1));
-                    //System.out.println(stack.peek());
                 } else {
                     if (stack.isEmpty()) {
                         return 0;
                     }
                     if (!stack.pop().equals(s.substring(2))) {
-                        System.out.println(s.substring(2));
-                        System.out.println(stack.peek());
+
                         return 0;
                     }
                 }
