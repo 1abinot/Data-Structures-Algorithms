@@ -159,10 +159,10 @@ public class App {
     public static void reverse(SLL<Integer> list) {
         /*
         input:
-        7
-        1 2 3 4 5 6 7
+        6
+        1 2 3 4 5 6
         output:
-        7 6 5 4 3 2 1
+        6 5 4 3 2 1
          */
         SLLNode<Integer> tmp1 = list.getFirst();
         SLLNode<Integer> tmp2 = list.getFirst();
