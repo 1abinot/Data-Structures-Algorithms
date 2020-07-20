@@ -157,6 +157,13 @@ class SLL<E> {
 
 public class App {
     public static void reverse(SLL<Integer> list) {
+        /*
+        input:
+        7
+        1 2 3 4 5 6 7
+        output:
+        7 6 5 4 3 2 1
+         */
         SLLNode<Integer> tmp1 = list.getFirst();
         SLLNode<Integer> tmp2 = list.getFirst();
         SLLNode<Integer> prev = null;
@@ -171,6 +178,21 @@ public class App {
 
     }
     public static boolean checkPalindrome(SLL<Integer> list) {
+        /*
+        input:
+        5
+        1 2 3 2 1
+
+        output:
+        true
+
+        input:
+        5
+        1 2 3 1 2
+
+        output:
+        false
+         */
         SLLNode<Integer> tmp1 = list.getFirst();
         SLLNode<Integer> tmp2 = list.getFirst();
 
@@ -206,6 +228,14 @@ public class App {
 
 
     public static void removeDuplicatesSorted(SLL<Integer> list) {
+        /*
+        input:
+        7
+        11 11 11 21 43 43 60
+
+        output:
+        11 21 43 60
+         */
         SLLNode<Integer> tmp = list.getFirst();
 
         while (tmp.succ != null) {
@@ -218,6 +248,13 @@ public class App {
     }
 
     public static void removeDuplicatesUnsorted(SLL<Integer> list) {
+        /*
+        input:
+        7
+        12 11 12 21 41 43 21
+        output:
+        12 11 21 41 43
+         */
         SLLNode<Integer> tmp1 = list.getFirst();
         SLLNode<Integer> tmp2 = list.getFirst();
         SLLNode<Integer> prev = null;
@@ -239,6 +276,14 @@ public class App {
     }
 
     public static void swapNodes(SLL<Integer> list, int x, int y) {
+        /*
+        input:
+        6
+        10 15 12 13 20 14
+        12 20
+        output:
+        10 15 20 13 12 14
+         */
         SLLNode<Integer> X = list.getFirst();
         SLLNode<Integer> Y = list.getFirst();
         SLLNode<Integer> prevX = null;
@@ -278,6 +323,15 @@ public class App {
     }
 
     public static SLL<Integer> spoiSortirani(SLL<Integer> lista1, SLL<Integer> lista2) {
+        /*
+        input:
+        7
+        1 3 5 7 8 9 10
+        5
+        2 3 6 9 11
+        output:
+        1 2 3 5 6 7 8 9 10 11
+         */
         SLL<Integer> result = null;
         SLLNode<Integer> d1 = null;
         SLLNode<Integer> d2 = null;

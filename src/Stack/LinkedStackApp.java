@@ -63,6 +63,16 @@ class LinkedStack<E> implements Stack<E> {
         return topElem;
     }
 
+    public int size() {
+        SLLNode<E> tmp = top;
+        int length=0;
+        while (tmp != null) {
+            length++;
+            tmp=tmp.succ;
+        }
+        return length;
+    }
+
 }
 
 public class LinkedStackApp {
@@ -90,17 +100,70 @@ public class LinkedStackApp {
 
         return 0;
     }
+
+    public static int[] asteroidCollision(int[] asteroids) {
+        LinkedStack<Integer> stack = new LinkedStack<Integer>();
+
+        for (int i = 0; i < asteroids.length; i++) {
+            if (stack.isEmpty() || asteroids[i] > 0) {
+                stack.push(asteroids[i]);
+            }else{
+                while (true) {
+                    int peek = stack.peek();
+                    if (peek < 0) {
+                        stack.push(asteroids[i]);
+                        break;
+                    } else if (peek == -asteroids[i]) {
+                        stack.pop();
+                        break;
+                    } else if (peek > -asteroids[i]) {
+                        break;
+                    }else{
+                        stack.pop();
+                        if (stack.isEmpty()) {
+                            stack.push(asteroids[i]);
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        int[] output = new int[stack.size()];
+        for (int i = stack.size() - 1; i >= 0; i--) {
+            output[i] = stack.pop();
+        }
+        return output;
+    }
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
 
         int n = Integer.parseInt(br.readLine());
 
+
+
+
+        /*
+        Valid XML
         String[] xmlCode = new String[n];
         for (int i = 0; i < n; i++) {
             xmlCode[i] = br.readLine();
         }
 
         System.out.println(checkXML(xmlCode));
+        */
+
+       int[] asteroids = new int[n];
+        String []line = br.readLine().split(" ");
+        for (int i = 0; i < n; i++) {
+            asteroids[i] = Integer.parseInt(line[i]);
+        }
+
+        asteroids = asteroidCollision(asteroids);
+
+        for (int i = 0; i < asteroids.length; i++) {
+            System.out.println(asteroids[i]);
+        }
+
     }
 }
