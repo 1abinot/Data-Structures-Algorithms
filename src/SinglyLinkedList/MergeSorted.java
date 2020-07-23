@@ -66,7 +66,7 @@ public class MergeSorted {
         SLL<Integer> sll2 = new SLL();
 
         BufferedReader br= new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("List 1:");
+        System.out.println("List 1");
         int N = Integer.parseInt(br.readLine());
 
         String line = br.readLine();
@@ -74,7 +74,7 @@ public class MergeSorted {
         for (int i = 0; i < N; i++) {
             sll1.insertLast(Integer.parseInt(pomNiza[i]));
         }
-        System.out.println("List 2:");
+        System.out.println("List 2");
         int M = Integer.parseInt(br.readLine());
 
         line = br.readLine();
