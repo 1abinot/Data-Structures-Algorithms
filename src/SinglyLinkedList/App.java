@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.HashSet;
 
-import static SinglyLinkedList.ReverseSLL.reverse;
 
 class SLLNode<E> {
     protected E element;
@@ -158,75 +157,8 @@ class SLL<E> {
 
 
 public class App {
-    public static boolean checkPalindrome(SLL<Integer> list) {
-        /*
-        input:
-        5
-        1 2 3 2 1
-
-        output:
-        true
-
-        input:
-        5
-        1 2 3 1 2
-
-        output:
-        false
-         */
-        SLLNode<Integer> tmp1 = list.getFirst();
-        SLLNode<Integer> tmp2 = list.getFirst();
-
-        SLLNode<Integer> start_second = null;
-        SLLNode<Integer> first = list.getFirst();
-        while (true) {
-            tmp1 = tmp1.succ.succ;
-            if (tmp1 == null) {
-                start_second = tmp2.succ;
-                break;
-            }
-            if (tmp1.succ == null) {
-                start_second = tmp2.succ.succ;
-                break;
-            }
-            tmp2=tmp2.succ;
-        }
-        tmp2.succ = null;
-        list.setFirst(start_second);
-        reverse(list);
-        tmp1=list.getFirst();
-
-        while (first != null && tmp1 != null) {
-            if (!first.element.equals(tmp1.element)) {
-                return false;
-            }
-            first=first.succ;
-            tmp1=tmp1.succ;
-        }
-        return true;
-
-    }
 
 
-    public static void removeDuplicatesSorted(SLL<Integer> list) {
-        /*
-        input:
-        7
-        11 11 11 21 43 43 60
-
-        output:
-        11 21 43 60
-         */
-        SLLNode<Integer> tmp = list.getFirst();
-
-        while (tmp.succ != null) {
-            if (tmp.element.equals(tmp.succ.element)) {
-                tmp.succ = tmp.succ.succ;
-            }else{
-                tmp = tmp.succ;
-            }
-        }
-    }
 
     public static void removeDuplicatesUnsorted(SLL<Integer> list) {
         /*
