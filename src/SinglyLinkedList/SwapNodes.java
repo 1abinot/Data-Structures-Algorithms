@@ -7,12 +7,14 @@ import java.io.InputStreamReader;
 public class SwapNodes {
     public static void swapNodes(SLL<Integer> list, int x, int y) {
         /*
+
         input:
         6
         10 15 12 13 20 14
         12 20
         output:
         10 15 20 13 12 14
+
          */
         SLLNode<Integer> X = list.getFirst();
         SLLNode<Integer> Y = list.getFirst();
