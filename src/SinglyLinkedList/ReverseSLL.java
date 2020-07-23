@@ -8,10 +8,10 @@ public class ReverseSLL {
     public static void reverse(SLL<Integer> list) {
         /*
         input:
-        6
-        1 2 3 4 5 6
+        7
+        1 2 3 4 5 6 7
         output:
-        6 5 4 3 2 1
+        7 6 5 4 3 2 1
          */
         SLLNode<Integer> tmp1 = list.getFirst();
         SLLNode<Integer> tmp2 = list.getFirst();
