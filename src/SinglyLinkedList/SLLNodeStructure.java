@@ -156,5 +156,16 @@ class SLL<E> {
 }
 
 
-public class App {
+public class SLLNodeStructure {
+    public static void main(String[] args) throws IOException {
+        SLL<Integer> sll = new SLL<>();
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        int n = Integer.parseInt(br.readLine());
+        String []pomNiza = br.readLine().split(" ");
+        for (int i = 0; i < n; i++) {
+            sll.insertLast(Integer.parseInt(pomNiza[i]));
+        }
+        System.out.println(sll);
+    }
 }
