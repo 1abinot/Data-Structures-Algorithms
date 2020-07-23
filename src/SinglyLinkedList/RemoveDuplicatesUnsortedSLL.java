@@ -44,7 +44,6 @@ public class RemoveDuplicatesUnsortedSLL {
         }
         System.out.println(sll);
         removeDuplicates(sll);
-        removeDuplicates(sll);
         System.out.println(sll);
     }
 }
