@@ -9,6 +9,7 @@ import static SinglyLinkedList.ReverseSLL.reverse;
 public class CheckForPalindrome {
     public static boolean isPalindrome(SLL<Integer> list) {
         /*
+        
         input:
         5
         1 2 3 2 1
@@ -22,6 +23,7 @@ public class CheckForPalindrome {
 
         output:
         false
+
          */
         SLLNode<Integer> tmp1 = list.getFirst();
         SLLNode<Integer> tmp2 = list.getFirst();
