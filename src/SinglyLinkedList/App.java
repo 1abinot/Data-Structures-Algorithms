@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.HashSet;
 
+import static SinglyLinkedList.ReverseSLL.reverse;
+
 class SLLNode<E> {
     protected E element;
     protected SLLNode<E> succ;
@@ -156,27 +158,6 @@ class SLL<E> {
 
 
 public class App {
-    public static void reverse(SLL<Integer> list) {
-        /*
-        input:
-        6
-        1 2 3 4 5 6
-        output:
-        6 5 4 3 2 1
-         */
-        SLLNode<Integer> tmp1 = list.getFirst();
-        SLLNode<Integer> tmp2 = list.getFirst();
-        SLLNode<Integer> prev = null;
-
-        while (tmp1 != null) {
-            tmp1 = tmp1.succ;
-            tmp2.succ = prev;
-            prev = tmp2;
-            tmp2 = tmp1;
-        }
-        list.setFirst(prev);
-
-    }
     public static boolean checkPalindrome(SLL<Integer> list) {
         /*
         input:
