@@ -181,49 +181,7 @@ class DLL<E> {
 }
 
 public class App {
-
-    public static long findMagicNumber(DLL<DLL<Integer>> list) {
-        DLLNode<DLL<Integer>> tmpList = list.getFirst();
-        DLLNode<Integer> tmpElems = null;
-
-        int suma = 0;
-        long proizvod = 1;
-
-        while (tmpList != null) {
-            suma = 0;
-            tmpElems = tmpList.element.getFirst();
-
-            while (tmpElems != null) {
-                suma+=tmpElems.element;
-                tmpElems = tmpElems.succ;
-            }
-
-            proizvod *= suma;
-            tmpList = tmpList.succ;
-        }
-        return proizvod;
-    }
-
     public static void main(String[] args) throws IOException {
 
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        DLL<DLL<Integer>> dll = new DLL<DLL<Integer>>();
-
-        int n = Integer.parseInt(br.readLine());
-        int m = Integer.parseInt(br.readLine());
-
-
-        for (int i = 0; i < n; i++) {
-            DLL<Integer> tmp = new DLL<Integer>();
-            String []niza = br.readLine().split(" ");
-            for (int j = 0; j < m; j++) {
-                tmp.insertLast(Integer.parseInt(niza[j]));
-            }
-            dll.insertLast(tmp);
-        }
-        
-        //razigranaList(dll);
-        //System.out.println(palindrome(dll));
-        System.out.println(findMagicNumber(dll));
     }
 }
