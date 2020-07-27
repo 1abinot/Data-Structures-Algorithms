@@ -227,20 +227,7 @@ public class App {
 
 
 
-    public static int palindrome(DLL<Integer> lista){
-        DLLNode<Integer> tmp1 = lista.getFirst();
-        DLLNode<Integer> tmp2 = lista.getLast();
 
-        while (tmp1 != tmp2) {
-            if (!tmp1.element.equals(tmp2.element)) {
-                return -1;
-            }
-            tmp1 = tmp1.succ;
-            tmp2 = tmp2.pred;
-        }
-
-        return 1;
-    }
 
     public static long findMagicNumber(DLL<DLL<Integer>> list) {
         DLLNode<DLL<Integer>> tmpList = list.getFirst();
