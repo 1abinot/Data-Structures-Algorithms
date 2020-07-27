@@ -19,6 +19,7 @@ public class SwapNodes {
     1 4 3 2 5
 
 
+
     Input:
     6
     1 2 3 4 5 6
