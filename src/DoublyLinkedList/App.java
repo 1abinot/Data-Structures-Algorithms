@@ -225,68 +225,7 @@ public class App {
     }
 
 
-    public static DLL<Integer> vojska(DLL<Integer> lista, int a, int b, int c, int d) {
-        DLLNode<Integer> A = null;
-        DLLNode<Integer> B = null;
-        DLLNode<Integer> C = null;
-        DLLNode<Integer> D = null;
 
-        DLLNode<Integer> dvizi = lista.getFirst();
-
-        while (dvizi != null) {
-            if (dvizi.element.equals(a)) {
-                A = dvizi;
-            }
-            if (dvizi.element.equals(b)) {
-                B = dvizi;
-            }
-            if (dvizi.element.equals(c)) {
-                C = dvizi;
-            }
-            if (dvizi.element.equals(d)) {
-                D = dvizi;
-            }
-
-            dvizi = dvizi.succ;
-        }
-
-        DLLNode<Integer> pomA = A.pred;
-        DLLNode<Integer> pomB = B.succ;
-        DLLNode<Integer> pomC = C.pred;
-        DLLNode<Integer> pomD = D.succ;
-
-        B.succ = D.succ;
-        if (pomD != null) {
-            pomD.pred = B;
-        }else{
-            lista.setLast(B);
-        }
-
-
-
-        if (pomB != C) {
-            pomB.pred = D;
-            D.succ = pomB;
-        }
-
-        if (pomC != B) {
-            pomC.succ = A;
-            A.pred = pomC;
-            D.succ = pomB;
-            pomB.pred = D;
-        }else{
-            D.succ = A;
-            A.pred = D;
-        }
-        C.pred = pomA;
-        if (pomA != null) {
-            pomA.succ = C;
-        }else{
-            lista.setFirst(C);
-        }
-
-        return lista;
-    }
 
     public static int palindrome(DLL<Integer> lista){
         DLLNode<Integer> tmp1 = lista.getFirst();
