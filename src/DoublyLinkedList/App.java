@@ -182,53 +182,6 @@ class DLL<E> {
 
 public class App {
 
-    public static void razigranaList(DLL<Character> lista) {
-        while (lista.getFirst().succ != null) {
-            DLLNode<Character> dvizi = lista.getFirst().succ;
-            while (dvizi != null) {
-                DLLNode<Character> d1 = dvizi.pred;
-                DLLNode<Character> d2 = dvizi.succ;
-
-                d1.succ = d2;
-
-                if (d2 != null) {
-                    d2.pred = d1;
-                    dvizi = d2.succ;
-                }else{
-                    lista.setLast(d1);
-                    dvizi = null;
-                }
-            }
-            System.out.println(lista);
-            if (lista.getFirst().succ == null) {
-                break;
-            }
-
-            dvizi = lista.getLast().pred;
-
-            while (dvizi != null) {
-                DLLNode<Character> d1 = dvizi.pred;
-                DLLNode<Character> d2 = dvizi.succ;
-
-                d2.pred = d1;
-
-                if (d1 != null) {
-                    d1.succ = d2;
-                    dvizi = d1.pred;
-                }else{
-                    lista.setFirst(d2);
-                    dvizi = null;
-                }
-            }
-            System.out.println(lista);
-        }
-    }
-
-
-
-
-
-
     public static long findMagicNumber(DLL<DLL<Integer>> list) {
         DLLNode<DLL<Integer>> tmpList = list.getFirst();
         DLLNode<Integer> tmpElems = null;
