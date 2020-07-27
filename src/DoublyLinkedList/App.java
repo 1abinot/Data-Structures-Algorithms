@@ -182,14 +182,14 @@ class DLL<E> {
 
 public class App {
     public static void main(String[] args) throws IOException {
-        DLL<Integer> dl = new DLL<>();
+        DLL<Integer> dll = new DLL<>();
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         int n = Integer.parseInt(br.readLine());
         String []pomNiza = br.readLine().split(" ");
         for (int i = 0; i < n; i++) {
-            dl.insertLast(Integer.parseInt(pomNiza[i]));
+            dll.insertLast(Integer.parseInt(pomNiza[i]));
         }
-        System.out.println(dl);
+        System.out.println(dll);
     }
 }

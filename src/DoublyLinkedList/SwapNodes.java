@@ -35,7 +35,7 @@ public class SwapNodes {
     2
 
     Output:
-    1 2 3 4 5 
+    1 2 3 4 5
     */
     public static void swapKth(DLL<Integer> list, int k) {
         DLLNode<Integer> curr1 = list.getFirst();
